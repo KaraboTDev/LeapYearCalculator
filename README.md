@@ -9,14 +9,7 @@ A beginner-friendly Leap Year Calculator built with ASP.NET Core MVC, showcasing
 - ✅ Launches directly to /Home/LeapYear via launchSettings.json
 
 
-🛠️ Tech Stack
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
+
 
 
 
