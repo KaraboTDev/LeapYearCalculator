@@ -20,6 +20,8 @@ A beginner-friendly Leap Year Calculator built with ASP.NET Core MVC, showcasing
 - Validation ensures input is numeric and within range
 - Controller checks if the year is a leap year
 - Result is displayed with optional history log
+
+
 🌱 Next Steps
 This project will evolve into a full-stack app:
 - 🔄 Convert controller logic into a Web API
