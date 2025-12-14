@@ -1,0 +1,53 @@
+﻿@model LeapYearCalculator.Models.LeapYearViewModel
+
+@{
+    ViewData["Title"] = "Leap Year Calculator";
+}
+
+<h1>Leap Year Calculator</h1>
+
+<p>Enter a year to check whether it is a leap year.</p>
+
+<!-- Show validation summary for model errors (e.g., invalid year) -->
+@Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+<form asp-action="LeapYear" method="post">
+    <div class="form-group">
+        <label asp-for="Year" class="control-label">Year</label>
+        <input asp-for="Year" class="form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Check</button>
+</form>
+
+<br />
+
+<!-- Display result if we have already checked a year -->
+@if (Model.IsLeapYear.HasValue && !string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert @(Model.IsLeapYear.Value ? "alert-success" : "alert-warning")">
+        @Model.Message
+    </div>
+}
+
+<!-- Optional enhancement: show history of checks in this session -->
+@if (Model.History != null && Model.History.Any())
+{
+    <h3>History</h3>
+    <ul>
+        @foreach (var item in Model.History)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+
+@section Scripts {
+    <!-- Required for client-side validation if you have the jQuery validation scripts -->
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
